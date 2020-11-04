@@ -97,18 +97,46 @@
         - Script 실행 순서
       - Project Settings > Physics
         - Gravity Y = 중력
-         
 
-    
 
+  # 3. 12 ~ 18화
+   - Box Collider
+     - Is Trigger : 물리적 접촉을 체크는 하되, 밀려나지 않는다
+   - GameObject.Instantiate(복사);
+   - Sprite Editor 문제 해결
+   - Animation, Animator
+     - AnimationController : Animation을 관리한다
+       - Make Transition으로  연결 시킨다
+       - Any State : 명령으로 연결된 애니메이션 실행
+       - 
+     - Animator : Animation을 사용
+   - 2D 렌더링
+     - 렌더링의 순서
+       - 맨 뒤부터 렌더링
+       - Default는 z값이 뒤에 있는 Object가 그려진다고 볼 수 있다.
+       - 카메라의 시점이나 위치에 따라 다를 수 있다.
+       - sortingOrder : 렌더링의 순서를 결정 해줌.
+       - 그 외 방법 : 카메라를 여러개 쓰며 각자의 Object를 비춰준다.
+   - 물리적인 업데이트는 따로 구현한다.
+   - AddForce(int, ForceMode.Impulse) : 물체 Mass 속성이랑 영향받아서 순간적인 힘을 주는 옵션
+   - UI : 스크린 크기 기준으로 맞춘다
+   - 캔버스 -> UGUI의 기본적인 기능을 제어
+     - Render Mode
+       - Overlay : 월드에 대한 크기
+       - Camera : 카메라에 대한 크기
+   - 캔버스 스케일러 -> 캔버스 공간의 크기에 대해 제어
+   - 캔버스 레이캐스트 -> 캔버스 내부의 충돌과 이벤트에 대해 제어
+     - 하나의 컴포넌트의 힘을 더 빌림 -> 이벤트 시스템이라는 컴포넌트의 힘들 빌림
+     - 버튼, 스크롤바
 
     
 
 # 질문 사항
  - VS C# 관련 마켓플레이스
+  - C# 프레임워크
  - Time.deltaTime
    - 프레임 느낌 (FPS)
  - class Name에 _
- - C# 프레임워크
- - m_IsJump = true;
+ - 물리적 중력과 up 파워 
+
  - 판자와 캐릭터 겹침 // 해결: 판자localScale.z 캐릭터보다 늘림
