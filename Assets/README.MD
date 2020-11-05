@@ -129,6 +129,24 @@
      - 하나의 컴포넌트의 힘을 더 빌림 -> 이벤트 시스템이라는 컴포넌트의 힘들 빌림
      - 버튼, 스크롤바
 
+  # 2. 19 ~ 24화
+   - File > Build Settings : Scenes In Build에 사용 할 Scenes Setting
+   - 일반적인 상속은 하나의 부모만 상속 받는다.
+   - interface 여러개의 상속을 받을 수 있다. (추상 : abstract)
+     - 실체를 가지지 않고 개념이 공통적일 때 사용
+   - using UnityEngine.UI;
+     - Text나 Button 같은 UGUI의 컴포넌트를 사용할 수 있다.
+   - using UnityEngine.EventSystems;
+     - ipointer 이벤트를 등록할 수 있다.
+   - using UnityEngine.SceneManagement;
+     - 씬을 넘기는 일을 실행시킬 수 있다.
+     - 새로운 씬을 만들거나 중첩로딩을 할 수 있다.
+       - SceneManager.LoadScene("PlayScene");
+   - UI TEXT : 사이즈 지정 및 폰트 변경
+   - GetComponents<Text>(); 내 안에 여러개의 컴포넌트를 호출
+   - GetComponentsInChildren<Text>(); 내 안에 자식까지 여러개의 컴포넌트를 호출
+
+
     
 
 # 질문 사항

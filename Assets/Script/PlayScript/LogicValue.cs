@@ -101,12 +101,116 @@ public class LogicValue : MonoBehaviour
         }
     }    
 
+    [SerializeField] 
+    private static int m_Score;
+
+    public static int Score {
+        get {
+            return m_Score;
+        }
+    }
+
+
+    public class ScoreData {
+        public string Name;
+        public int Score;
+        public ScoreData(string _Name, int _Score) {
+            Name = _Name;
+            Score = _Score;
+        }
+    }
+
+    // [SerializeField] 
+    // private static bool m_Load = false;
+
+    [SerializeField] 
+    private static List<ScoreData> m_ScoreArr;
+
+    public static List<ScoreData> ScoreArr {
+        get {
+            return m_ScoreArr;
+        }
+    }
+    
+    public static void ScoreLoad() {
+        if( PlayerPrefs.HasKey("Name0") == true) {
+            // 키가 존재한다면 기존데이터가 있다.
+
+            m_ScoreArr = new List<ScoreData>();
+
+            for (int i = 0; i < 5; i++) {
+                ScoreData NewScore = new ScoreData(PlayerPrefs.GetString("Name" + i), PlayerPrefs.GetInt("Score" + i));
+                m_ScoreArr.Add(NewScore);
+            }
+            return;
+        }
+
+        // PlayerPrefs.SetString(string key, string value);
+        // m_Score.Clear();
+        // PlayerPrefs.HasKey("Name0");
+
+        m_ScoreArr = new List<ScoreData>();
+        
+        for (int i = 0; i < 5; i++) {
+
+            // save
+            PlayerPrefs.SetString("Name" + i, "");
+            PlayerPrefs.SetInt("Score" + i, 0);
+
+            ScoreData NewScore = new ScoreData("", 0);
+            m_ScoreArr.Add(NewScore);
+        }
+        // m_Load = true;
+    }
+
+    public static void ScoreInput(string _Name) {
+
+        ScoreData CheckData = new ScoreData(_Name, m_Score);
+        m_Score = 0;
+        for (int i = 0; i < ScoreArr.Count; i++) {
+            if(CheckData.Score > ScoreArr[i].Score) {
+                ScoreData TempScore = ScoreArr[i];
+                ScoreArr[i] = CheckData;
+                CheckData = TempScore;
+            }
+        }
+
+        for (int i = 0; i < 5; i++) {
+            
+            PlayerPrefs.SetString("Name" + i, m_ScoreArr[i].Name);
+            PlayerPrefs.SetInt("Score" + i, m_ScoreArr[i].Score);
+        }
+    }
+
+    public static bool ScoreCheck() {
+        // 기록에 들어간다면 T
+        for (int i = 0; i < ScoreArr.Count; i++) {
+
+            if(m_Score > ScoreArr[i].Score) {
+                // 새로운 기록T
+
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static void PlusScore(int _Score) {
+        m_Score += _Score;
+    }
+
+    public static void ScoreReset() {
+        m_Score = 0;
+    }
+
+ 
     private void Awake() {
         // Debug.Log("LogicValue Awake");
         // 이 코드는 1순위로 실행
         Inst = this;
+        
     }
-
+// PlayerPrefs.DeleteAll
     void Update()
     {
         

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -49,6 +50,7 @@ public class PlayerScript : MonoBehaviour
     
 
     private void Awake() {
+        LogicValue.ScoreReset();
         m_Ani = GetComponent<Animator>();
 
         m_Rigi = GetComponent<Rigidbody>();
@@ -79,7 +81,9 @@ public class PlayerScript : MonoBehaviour
     void Update() {
 
         if( transform.position.y <= -MoveCamera.CamCom.orthographicSize ) {
-            
+            // LogicValue.ScoreReset();
+            // SceneManager.LoadScene("ScoreScene");
+            SceneManager.LoadScene(2);
             // RESET
             // Destroy(gameObject);
             //Player RESET
@@ -96,7 +100,7 @@ public class PlayerScript : MonoBehaviour
         m_PlayerPos = transform.position;
 
 
-        if (true == Input.GetKeyDown(KeyCode.Space) ) {
+        if (true == Input.GetMouseButtonDown(0) ) {
             if( m_JumpCount > 0 ) {          
 
             m_Rigi.AddForce(Vector3.up * LogicValue.JumpPower, ForceMode.Impulse);

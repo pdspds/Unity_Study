@@ -22,8 +22,8 @@ public class CoinScript : MonoBehaviour
         }
     }
     private void OnTriggerEnter(Collider other) {
+        LogicValue.PlusScore(10);
         Destroy(gameObject);
-        Debug.Log("코인 충돌222");
     }
 
 
