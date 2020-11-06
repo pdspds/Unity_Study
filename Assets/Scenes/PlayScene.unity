@@ -163,6 +163,7 @@ MonoBehaviour:
   m_MainFloor: {fileID: 21300000, guid: 68ca2968a63d25142a319f6aeae0ce76, type: 3}
   m_LeftFloor: {fileID: 21300000, guid: 9132d317e9bfe3c4b9d81d222ad13986, type: 3}
   m_RightFloor: {fileID: 21300000, guid: fcf186bdbbea88c47809106afae6cef9, type: 3}
+  m_Score: 0
 --- !u!4 &41188041
 Transform:
   m_ObjectHideFlags: 0
@@ -1153,7 +1154,11 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
+<<<<<<< HEAD
   m_MatchWidthOrHeight: 0.5
+=======
+  m_MatchWidthOrHeight: 0
+>>>>>>> f1fd5c754407c5f081708fa967e85f7395a8c7dd
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -1192,7 +1197,11 @@ RectTransform:
   m_Children:
   - {fileID: 1323304214}
   m_Father: {fileID: 0}
+<<<<<<< HEAD
   m_RootOrder: 6
+=======
+  m_RootOrder: 7
+>>>>>>> f1fd5c754407c5f081708fa967e85f7395a8c7dd
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
